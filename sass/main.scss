@@ -1,3 +1,52 @@
+// MEDIA QUERY MANAGER
+/*
+  0 - 600px:      Phone
+  600 - 900px:    Tablet portrait
+  900 - 1200px:   Tablet landscape
+  [1200 - 1800] is where our normal styles apply
+  1800px + :      Big desktop
+  $breakpoint arguement choices:
+  - phone
+  - tab-port
+  - tab-land
+  - big-desktop
+  ORDER: Base + typography > general layout + grid > page layout > components
+  1em = 16px
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint==phone {
+    @media only screen and (max-width: 37.5em) {
+      //600px
+      @content;
+    }
+  }
+
+  @if $breakpoint==tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+
+    //900px
+  }
+
+  @if $breakpoint==tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+
+    //1200px
+  }
+
+  @if $breakpoint==big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+
+    //1800
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -9,6 +58,16 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; // 10px/16px = 62.5% => 1rem = 10px
+
+  @include respond(tab-land) {
+    background-color: red;
+    font-size: 56.25%; // 1rem = 9px, 9/16 = 50%
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
 }
 
 .container {
@@ -19,14 +78,12 @@ html {
 .section {
   position: relative;
   z-index: 1;
-  background-image: linear-gradient(
-    to right top,
-    rgb(0, 107, 201),
-    rgb(0, 142, 204),
-    rgb(0, 176, 204),
-    rgb(0, 204, 197),
-    rgb(0, 181, 147)
-  );
+  background-image: linear-gradient(to right top,
+      rgb(0, 107, 201),
+      rgb(0, 142, 204),
+      rgb(0, 176, 204),
+      rgb(0, 204, 197),
+      rgb(0, 181, 147));
 }
 
 .navbar {
@@ -37,6 +94,8 @@ html {
   justify-content: space-between;
   margin: 3.5rem auto;
   width: 62%;
+
+  @include respond(tab-land) {}
 
   .logo {
     font-size: 3.5rem;
@@ -78,12 +137,20 @@ html {
   z-index: 9000;
   padding-bottom: 15rem;
 
+  @include respond(tab-land) {
+    padding: 0;
+  }
+
   .blog__posts {
     background-color: #fff;
     width: 62%;
     box-shadow: 0 30px 50px 0 rgba(1, 1, 1, 0.15);
     margin: 0 auto;
     margin-top: -10rem;
+
+    @include respond(tab-land) {
+      width: 100%;
+    }
   }
 
   .blog__post {
