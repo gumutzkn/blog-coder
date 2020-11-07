@@ -85,6 +85,8 @@ html {
       rgb(0, 176, 204),
       rgb(0, 204, 197),
       rgb(0, 181, 147));
+
+
 }
 
 .navbar {
@@ -98,24 +100,25 @@ html {
 
   @include respond(tab-land) {
     // max1200px
-    width: 50%;
+    width: 90%;
+    margin: 2.5rem auto;
+    height: max-content;
+    // background-color: yellowgreen;
   }
 
   @include respond(tab-port) {
     // width < 900?
     width: 90%;
-    height: 5vh;
-    // background-color: yellowgreen;
-
+    margin: 4rem auto;
   }
 
   .logo {
     font-size: 3.5rem;
 
-    @include respond(tab-port) {
-      // width < 900?
+    @include respond(tab-land) {
+      // max1200px
+      margin-top: -.7rem;
       font-size: 4.5rem;
-      // background-color: red;
     }
   }
 
@@ -127,8 +130,9 @@ html {
   .links {
 
     &__icon {
-      @include respond(tab-port) {
-        // width < 900?
+
+      @include respond(tab-land) {
+        // max1200px
         display: none;
       }
     }
@@ -139,11 +143,6 @@ html {
       align-items: center;
       list-style: none;
       // background-color: red;
-
-      @include respond(tab-port) {
-        // width < 900?
-        // background-color: black;
-      }
     }
 
     li {
@@ -158,6 +157,11 @@ html {
     a {
       font-size: 1.2rem;
       font-family: "Josefin Sans", sans-serif;
+
+      @include respond(tab-land) {
+        // max1200px
+        font-size: 2rem;
+      }
 
       @include respond(tab-port) {
         // width < 900?

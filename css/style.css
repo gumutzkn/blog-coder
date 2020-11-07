@@ -48,20 +48,23 @@ html {
   width: 62%; }
   @media only screen and (max-width: 75em) {
     .navbar {
-      width: 50%; } }
+      width: 90%;
+      margin: 2.5rem auto;
+      height: max-content; } }
   @media only screen and (max-width: 56.25em) {
     .navbar {
       width: 90%;
-      height: 5vh; } }
+      margin: 4rem auto; } }
   .navbar .logo {
     font-size: 3.5rem; }
-    @media only screen and (max-width: 56.25em) {
+    @media only screen and (max-width: 75em) {
       .navbar .logo {
+        margin-top: -.7rem;
         font-size: 4.5rem; } }
   .navbar a {
     text-decoration: none;
     color: #fff; }
-  @media only screen and (max-width: 56.25em) {
+  @media only screen and (max-width: 75em) {
     .navbar .links__icon {
       display: none; } }
   .navbar .links ul {
@@ -76,6 +79,9 @@ html {
   .navbar .links a {
     font-size: 1.2rem;
     font-family: "Josefin Sans", sans-serif; }
+    @media only screen and (max-width: 75em) {
+      .navbar .links a {
+        font-size: 2rem; } }
     @media only screen and (max-width: 56.25em) {
       .navbar .links a {
         font-size: 2rem; } }
