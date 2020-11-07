@@ -60,6 +60,7 @@ html {
   font-size: 62.5%; // 10px/16px = 62.5% => 1rem = 10px
 
   @include respond(tab-land) {
+    //1200px
     background-color: red;
     font-size: 56.25%; // 1rem = 9px, 9/16 = 50%
   }
@@ -95,10 +96,27 @@ html {
   margin: 3.5rem auto;
   width: 62%;
 
-  @include respond(tab-land) {}
+  @include respond(tab-land) {
+    // max1200px
+    width: 50%;
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+    width: 90%;
+    height: 5vh;
+    // background-color: yellowgreen;
+
+  }
 
   .logo {
     font-size: 3.5rem;
+
+    @include respond(tab-port) {
+      // width < 900?
+      font-size: 4.5rem;
+      // background-color: red;
+    }
   }
 
   a {
@@ -107,12 +125,25 @@ html {
   }
 
   .links {
+
+    &__icon {
+      @include respond(tab-port) {
+        // width < 900?
+        display: none;
+      }
+    }
+
     ul {
       display: flex;
       text-transform: uppercase;
       align-items: center;
       list-style: none;
       // background-color: red;
+
+      @include respond(tab-port) {
+        // width < 900?
+        // background-color: black;
+      }
     }
 
     li {
@@ -120,12 +151,18 @@ html {
 
       i {
         font-size: 1.5rem;
+
       }
     }
 
     a {
       font-size: 1.2rem;
       font-family: "Josefin Sans", sans-serif;
+
+      @include respond(tab-port) {
+        // width < 900?
+        font-size: 2rem;
+      }
     }
   }
 }
